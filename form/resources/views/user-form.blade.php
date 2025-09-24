@@ -5,27 +5,43 @@
             <h1>Add New User</h1>
     
         </div>
-        
+
+
         <div class="form-container">
+
+        <!-- Error Show Here  -->
+         <!-- All error show  -->
+         
+<!--        @if($errors->any())
+       @foreach($errors -> all() as $error)
+       <div style="color : red">
+        {{$error}}
+       </div>
+       @endforeach
+       @endif -->
+
             <form action="adduser" method="post">
                 @csrf               
                  <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" id="username" placeholder="Enter your username" name="username" required>
+                    <input type="text" id="username" placeholder="Enter your username" name="username" value="{{old('username')}}" >
                     <span class="icon">👤</span>
                 </div>
+                <span style="color : red">@error('username'){{$message}}@enderror</span>
                 
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input type="email" id="email" placeholder="Enter your email" name="email" required>
+                    <input type="text" id="email" placeholder="Enter your email" name="email"  value="{{old('email')}}" >
                     <span class="icon">✉️</span>
                 </div>
+                  <span style="color : red">@error('email'){{$message}}@enderror</span>
                 
                 <div class="form-group">
                     <label for="city">City</label>
-                    <input type="text" id="city" placeholder="Enter your city" name="city" required>
+                    <input type="text" id="city" placeholder="Enter your city" name="city" value="{{old('city')}}" >
                     <span class="icon">🏙️</span>
                 </div>
+                  <span style="color : red">@error('city'){{$message}}@enderror</span>
                 
                 <button type="submit" class="btn">Add User</button>
             </form>
