@@ -15,8 +15,12 @@ Route::view('about', 'about'); // here we can alos apply
 // here we apply group of middleware on multiple routes at onces 
 
 
+
 Route::middleware('check1')->group(function () {
     Route::view('contact', 'about');
     Route::view('user', 'home');
     Route::view('list', 'about');
 });
+
+// Access all Page -> Like this 
+// http://127.0.0.1:8000/user?age=22&country=india 
